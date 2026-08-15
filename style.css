@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor del corazón */
+
+#heart {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    animation: heartbeat 1.5s infinite ease-in-out;
+}
+
+/* Cada "I LOVE YOU" */
+
+.love {
+    position: absolute;
+
+    color: #ffb6c1;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    transform: translate(-50%, -50%);
+
+    text-shadow:
+        0 0 5px #ff69b4,
+        0 0 10px #ff69b4,
+        0 0 20px #ff1493;
+}
+
+/* Texto central */
+
+.message {
+    position: absolute;
+
+    color: white;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 15px #ff69b4,
+        0 0 30px #ff1493;
+
+    animation: messagePulse 1.5s infinite ease-in-out;
+
+    z-index: 10;
+}
+
+/* Latido */
+
+@keyframes heartbeat {
+
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    15% {
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    30% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    45% {
+        transform: translate(-50%, -50%) scale(1.06);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes messagePulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.1);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Adaptación para móvil */
+
+@media (max-width: 600px) {
+
+    #heart {
+        width: 350px;
+        height: 350px;
+    }
+
+    .love {
+        font-size: 7px;
+    }
+
+    .message {
+        font-size: 20px;
+    }
+}
