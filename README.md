@@ -1,2 +1,0 @@
-# Bakish
-web 
