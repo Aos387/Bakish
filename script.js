@@ -5,16 +5,12 @@ const heart = document.getElementById("heart");
    CONFIGURACIÓN
    ========================= */
 
-// Cantidad de palabras BAKISH
 const total = 90;
 
-// Centro del corazón
 const center = 300;
 
-// Tamaño del corazón
 const scale = 15;
 
-// Guardamos todas las palabras
 const words = [];
 
 
@@ -33,25 +29,12 @@ for (let i = 0; i < total; i++) {
     heart.appendChild(text);
 
 
-    /*
-        Cada palabra empieza
-        en un punto diferente
-        del corazón.
-    */
-
     words.push({
 
         element: text,
 
         angle:
             (Math.PI * 2 * i) / total,
-
-        /*
-            Velocidad de movimiento.
-
-            Cada palabra tiene una
-            velocidad ligeramente diferente.
-        */
 
         speed:
             0.00035 +
@@ -65,11 +48,6 @@ for (let i = 0; i < total; i++) {
    ========================= */
 
 function heartPosition(angle) {
-
-    /*
-        Fórmula matemática
-        del corazón.
-    */
 
     const x =
         16 *
@@ -105,18 +83,9 @@ function heartPosition(angle) {
 
 function heartTangent(angle) {
 
-    /*
-        Calculamos un punto
-        ligeramente posterior.
-    */
-
     const next =
         angle + 0.01;
 
-
-    /*
-        Punto actual
-    */
 
     const x1 =
         16 *
@@ -133,10 +102,6 @@ function heartTangent(angle) {
         - Math.cos(4 * angle);
 
 
-    /*
-        Punto siguiente
-    */
-
     const x2 =
         16 *
         Math.pow(
@@ -152,10 +117,6 @@ function heartTangent(angle) {
         - Math.cos(4 * next);
 
 
-    /*
-        Dirección de movimiento
-    */
-
     const dx =
         x2 - x1;
 
@@ -163,10 +124,6 @@ function heartTangent(angle) {
     const dy =
         -(y2 - y1);
 
-
-    /*
-        Convertimos a grados
-    */
 
     return Math.atan2(
         dy,
@@ -184,18 +141,9 @@ function animate(time) {
     words.forEach(
         (word, index) => {
 
-            /*
-                Hacemos que cada BAKISH
-                avance por el corazón.
-            */
-
             word.angle +=
                 word.speed;
 
-
-            /*
-                Calculamos posición
-            */
 
             const position =
                 heartPosition(
@@ -203,21 +151,11 @@ function animate(time) {
                 );
 
 
-            /*
-                Calculamos orientación
-            */
-
             const rotation =
                 heartTangent(
                     word.angle
                 );
 
-
-            /*
-                Pequeño movimiento
-                vertical para darle
-                algo de vida.
-            */
 
             const wave =
                 Math.sin(
@@ -226,26 +164,13 @@ function animate(time) {
                 ) * 1.5;
 
 
-            /*
-                Posición X
-            */
-
             word.element.style.left =
                 `${position.x}px`;
 
 
-            /*
-                Posición Y
-            */
-
             word.element.style.top =
                 `${position.y + wave}px`;
 
-
-            /*
-                Giramos BAKISH siguiendo
-                la curva del corazón.
-            */
 
             word.element.style.transform =
                 `
@@ -256,19 +181,11 @@ function animate(time) {
     );
 
 
-    /*
-        Siguiente frame
-    */
-
     requestAnimationFrame(
         animate
     );
 }
 
-
-/* =========================
-   INICIAR
-   ========================= */
 
 requestAnimationFrame(
     animate
