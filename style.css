@@ -7,9 +7,10 @@
 body {
     width: 100vw;
     height: 100vh;
+
     overflow: hidden;
 
-    background: #050008;
+    background: #030006;
 
     display: flex;
     justify-content: center;
@@ -18,7 +19,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Contenedor del corazón */
+
+/* =========================
+   CORAZÓN
+   ========================= */
 
 #heart {
     position: absolute;
@@ -31,62 +35,91 @@ body {
 
     transform: translate(-50%, -50%);
 
-    animation: heartbeat 2.2s infinite ease-in-out;
+    animation: heartbeat 3s infinite ease-in-out;
 }
 
-/* Cada palabra BAKISH */
+
+/* =========================
+   BAKISH
+   ========================= */
 
 .love {
     position: absolute;
 
-    color: #c77dff;
+    color: #8000ff;
 
-    font-size: 11px;
+    font-size: 13px;
+
     font-weight: bold;
 
     white-space: nowrap;
 
     transform-origin: center;
 
-    text-shadow:
-        0 0 4px #c77dff,
-        0 0 8px #9d4edd,
-        0 0 15px #7b2cbf,
-        0 0 25px #5a189a;
-
     user-select: none;
+
+    pointer-events: none;
+
+    /*
+        Glow morado
+    */
+
+    text-shadow:
+        0 0 4px #8000ff,
+        0 0 8px #8000ff,
+        0 0 15px #8000ff,
+        0 0 25px #8000ff,
+        0 0 40px #8000ff;
 }
 
-/* Latido */
+
+/* =========================
+   LATIDO SUAVE
+   ========================= */
 
 @keyframes heartbeat {
 
     0% {
-        transform: translate(-50%, -50%) scale(1);
+        transform:
+            translate(-50%, -50%)
+            scale(1);
     }
 
-    15% {
-        transform: translate(-50%, -50%) scale(1.035);
+    20% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.015);
     }
 
-    30% {
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    45% {
-        transform: translate(-50%, -50%) scale(1.025);
+    40% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
     }
 
     60% {
-        transform: translate(-50%, -50%) scale(1);
+        transform:
+            translate(-50%, -50%)
+            scale(1.01);
+    }
+
+    80% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
     }
 
     100% {
-        transform: translate(-50%, -50%) scale(1);
+        transform:
+            translate(-50%, -50%)
+            scale(1);
     }
 }
 
-/* Móvil */
+
+/* =========================
+   MÓVILES
+   ========================= */
 
 @media (max-width: 700px) {
 
@@ -96,6 +129,6 @@ body {
     }
 
     .love {
-        font-size: 8px;
+        font-size: 9px;
     }
 }
