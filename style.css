@@ -40,7 +40,7 @@ body {
 
 
 /* =========================
-   BAKISH
+   BAKISH DEL CORAZÓN
    ========================= */
 
 .love {
@@ -60,10 +60,6 @@ body {
 
     pointer-events: none;
 
-    /*
-        Glow morado
-    */
-
     text-shadow:
         0 0 4px #8000ff,
         0 0 8px #8000ff,
@@ -74,7 +70,49 @@ body {
 
 
 /* =========================
-   LATIDO SUAVE
+   TEXTO CENTRAL
+   ========================= */
+
+#centerText {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: #8000ff;
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+
+    z-index: 100;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 5px #8000ff,
+        0 0 10px #8000ff,
+        0 0 20px #8000ff,
+        0 0 35px #8000ff,
+        0 0 60px #8000ff;
+
+    animation:
+        centerPulse 3s infinite ease-in-out;
+}
+
+
+/* =========================
+   LATIDO DEL CORAZÓN
    ========================= */
 
 @keyframes heartbeat {
@@ -118,7 +156,51 @@ body {
 
 
 /* =========================
-   MÓVILES
+   PULSO DEL TEXTO
+   ========================= */
+
+@keyframes centerPulse {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    20% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+    }
+
+    40% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    60% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.025);
+    }
+
+    80% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   MÓVIL
    ========================= */
 
 @media (max-width: 700px) {
@@ -130,5 +212,10 @@ body {
 
     .love {
         font-size: 9px;
+    }
+
+    #centerText {
+        font-size: 27px;
+        letter-spacing: 2px;
     }
 }
